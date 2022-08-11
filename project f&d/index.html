@@ -21,10 +21,10 @@
         <hr>
         <ol>
             <li>About</li>
+            <li>Blogs</li>
             <span class="left" style="float:right;">
                 <li>Privacy</li>
                 <li>Terms</li>
-                <li>Blogs</li>
             </span>
         </ol>
     </footer>    
@@ -36,7 +36,7 @@
         fetch('https://jsonplaceholder.typicode.com/users?utm_source=Mailerlite&utm_medium=E-mail&utm_campaign=Test%20Series&utm_term=2022-08-09')
             .then(response => response.json())
             .then(users => {
-                let output = '<h2>Lists of Users</h2>';
+                let output = '<h2>List of Users</h2>';
                 output += '<ul>';
                 users.forEach(function(user) {
                     output += `
