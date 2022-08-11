@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Person Management Application</title> 
+    <!-- CSS link -->
+    <link rel="stylesheet" href="style.css">               
+</head>
+<body>
+    <div class="logo">
+        <img src="img\cat.gif" width="450px">
+        <button id="btn" style="width: -webkit-fill-available;">Fetch User Data</button>
+        <div id="response"></div>
+        <div id="result"></div>
+    </div>
+
+    <!-- Footer -->
+    <footer> 
+        <hr>
+        <ol>
+            <li>About</li>
+            <li>Blogs</li>
+            <span class="left" style="float:right;">
+                <li>Privacy</li>
+                <li>Terms</li>
+            </span>
+        </ol>
+    </footer>    
+</body>
+<script>
+    document.getElementById('btn').addEventListener('click', fetchUserData);
+    
+    function fetchUserData(){
+        fetch('https://jsonplaceholder.typicode.com/users?utm_source=Mailerlite&utm_medium=E-mail&utm_campaign=Test%20Series&utm_term=2022-08-09')
+            .then(response => response.json())
+            .then(users => {
+                let output = '<h2>List of Users</h2>';
+                output += '<ul>';
+                users.forEach(function(user) {
+                    output += `
+                        <li>
+                            ${user.name}
+                        </li>
+                    `;
+                });
+                output += '</ul>'
+                document.getElementById("response").innerHTML = output;
+            });
+    }
+
+</script>
+</html>
